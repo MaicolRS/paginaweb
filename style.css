@@ -6,11 +6,89 @@
     padding: 0;
 }
 
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
 body {
     font-family: "Oswald", sans-serif;
     line-height: 1.6;
     color: #333;
 }
+
+/*Hamburguesa*/
+
+.hamburguesa {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.hamburguesa span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    margin-bottom: 5px;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.mostrar {
+    display: block;
+}
+
+@media(max-width: 768px) {
+    .hamburguesa {
+        display: block;
+    }
+
+    #menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #fff;
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #menu li {
+        margin-bottom: 10px;
+    }
+
+    #menu a {
+        color: #fff;
+    }
+}
+
+#hamburguesa:checked+#menu {
+    display: block;
+}
+
+
+
 
 /*Nagecation*/
 nav {
@@ -41,6 +119,7 @@ nav ul li {
     padding: 0 20px;
     list-style-type: none;
     margin: 0 10px;
+    transition: all 0.3s ease;
 }
 
 .navbar a {
@@ -50,8 +129,13 @@ nav ul li {
     font-size: 18px;
 }
 
-.navbar a:hover {
+.navbar li:hover {
     border-radius: 1px solid #ddd;
+    color: #76d7c4;
+    transform: scale(1.1);
+}
+
+.navbar a:hover {
     color: #76d7c4;
 }
 
@@ -93,17 +177,23 @@ nav ul li {
     border-radius: 10px;
     display: block;
     margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.problematicas p {
+    font-size: 20px;
 }
 
 .section1 button a {
     text-decoration: none;
     color: #f7f7f7;
 
+
 }
 
 .section1 button:hover {
     background-color: #76d7c4;
-
+    transform: scale(1.1);
 }
 
 /*Problematicas*/
@@ -127,13 +217,14 @@ nav ul li {
 
 .problematicas ul {
     list-style-type: none;
-    margin: 0;
+    margin-bottom: 20px;
     padding: 0;
     display: flex;
     justify-content: center;
 }
 
 .problematicas li {
+    transform: scale(1.1);
     margin-bottom: 0 20px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -156,6 +247,10 @@ nav ul li {
 
 main {
     overflow: hidden;
+}
+
+.types p {
+    font-size: 20px;
 }
 
 .types {
@@ -188,11 +283,11 @@ aside p {
 }
 
 .types h2 {
+    font-size: 35px;
     display: flex;
     justify-content: center;
     color: #148f77;
-    font-size: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border-radius: 10px;
     background-color: #f0f0f0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -203,7 +298,7 @@ aside p {
 }
 
 .types ul {
-    margin: 20px;
+    margin-bottom: 20px;
     padding: 0;
 }
 
@@ -233,12 +328,24 @@ h3 {
 }
 
 .mapamental img {
+    max-width: 100%;
+    height: auto;
     display: block;
-    margin: 0 auto;
     height: 50%;
     width: 80%;
-    border-radius: 1px solid #ddd;
-    background-color: #f0f0f0;
+    border: 5px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px #888888;
+    filter: grayscale(100%);
+    transition: tranform 0.2s;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
 }
 
 .problemas h2 {
@@ -277,10 +384,16 @@ h3 {
     border-radius: 30px;
 }
 
+.problemas a {
+    text-decoration: none;
+    color: white;
+}
+
 .problemas button:hover {
     color: #45a049;
     transform: scale(1.1);
 }
+
 
 
 /*Media Queries*/
@@ -299,6 +412,20 @@ h3 {
     }
 }
 
+
+@media(max-width: 768px) {
+    .problematicasul {
+        flex-direction: column;
+    }
+}
+
+
+@media(max-width: 480px) {
+    .types {
+        width: 100%;
+    }
+}
+
 @media(max-width: 480px) {
     .problematicasul {
         flex-direction: column;
@@ -307,4 +434,80 @@ h3 {
     .problematicasli {
         margin-bottom: 10px;
     }
+}
+
+
+
+/*Fuentes estilos*/
+@media(max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+}
+
+/*Tamaño de los elementos*/
+
+@media(max-width: 768px) {
+    .problemas button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+}
+
+@media(max-width: 468px) {
+    .problemas button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+}
+
+
+/*Diseño de navegacion*/
+
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li {
+        margin-bottom: 10px;
+    }
+}
+
+
+/*Ajuste diseño, problematicas*/
+@media(max-width: 768px) {
+    .problematicas ul {
+        flex-direction: column;
+    }
+
+    .problematicas li {
+        margin-bottom: 10px;
+    }
+
+}
+
+/*Seccion de tipos y consecuencias*/
+@media(max-width: 768px) {
+    .types {
+        width: 100%;
+    }
+
+    aside {
+        width: 100%;
+    }
+
 }
